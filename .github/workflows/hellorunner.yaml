@@ -1,0 +1,18 @@
+name : hello runner
+
+on : 
+  push:
+    branches:
+      - main
+
+jobs :
+  sayhello:
+      runs-on : Rajs-win11
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        
+        - name: Print Hello
+        run: echo "Hello, from new runner!!"
