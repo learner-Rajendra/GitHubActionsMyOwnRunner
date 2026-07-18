@@ -1,24 +1,20 @@
-name: Windows 11 Automation Pipeline
+name: Windows 11 Python 2.7 Automation
 
 on: [push]
 
 jobs:
-  execute-script:
-    # Target your new self-hosted Windows 11 runner
+  execute-legacy-script:
+    # Target your self-hosted Windows 11 runner
     runs-on: Rajs-win11
 
     steps:
-      # Natively check out the code using the official GitHub action
+      # 1. Bring the repository code down to the machine
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      # Set up Python properly using the runner's environment variables
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '2.7'
-
-      # Run your script using standard commands
-      - name: Run Python Script
+      # 2. Run the script directly using the local Python 2.7 path
+      - name: Run Python 2.7 Script
+        shell: cmd
         run: |
-          python C:\Users\HP\Documents\GHActions\print1.py
+          echo Running script with Python 2.7.1...
+          "C:\Python27\python.exe" printo.py
