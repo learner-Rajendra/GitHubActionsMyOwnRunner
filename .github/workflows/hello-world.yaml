@@ -5,7 +5,7 @@ on: [push]
 jobs:
   execute-legacy-script:
     # Target your self-hosted Windows 11 runner
-    runs-on: Rajs-win11
+    runs-on: [Rajs-win11, self-hosted, lenovo]
 
     steps:
       # 1. Bring the repository code down to the machine
