@@ -1,16 +1,24 @@
-name : hello world demo
+name: Windows 11 Automation Pipeline
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  say-hello:
+  execute-script:
+    # Target your new self-hosted Windows 11 runner
     runs-on: Rajs-win11
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name:  Print Hello
-        run: echo " Hello, GitHub Actions!"
+    steps:
+      # Natively check out the code using the official GitHub action
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      # Set up Python properly using the runner's environment variables
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '2.7'
+
+      # Run your script using standard commands
+      - name: Run Python Script
+        run: |
+          python C:\Users\HP\Documents\GHActions\print1.py
