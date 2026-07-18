@@ -1,0 +1,16 @@
+name : hello world demo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  say-hello:
+    runs-on: Rajs-win11
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name:  Print Hello
+        run: echo " Hello, GitHub Actions!"
